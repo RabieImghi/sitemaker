@@ -8,6 +8,10 @@ if(isset($_GET["continu"])){
     require_once "template/contenu/contenu".$_GET['continu'].".php";
     $_SESSION["modal"]=$modalAdd;
 }
+if(isset($_GET["table"])){
+    require_once "template/tables/table".$_GET['table'].".php";
+    $_SESSION["table"]=$table;
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,18 +27,15 @@ if(isset($_GET["continu"])){
         <a href="index_.php?header=1">header 1</a>
         <a href="index_.php?header=2">header 2</a>
         <a href="index_.php?continu=1">continu 1</a>
-        <a href="index_.php?continu=1">continu 2</a>
+        <a href="index_.php?table=1">table 1</a>
     </section>
     <section style='width:80%;'>
         Afichage <a href="export.php">downolad</a><br>
         <div class='htmlCode'>
         <?php
-            if(isset($_SESSION["header"])){
-                echo $_SESSION["header"];
-            } 
-            if(isset($_SESSION["modal"])){
-                echo $_SESSION["modal"];
-            }
+            if(isset($_SESSION["header"])){ echo $_SESSION["header"]; } 
+            if(isset($_SESSION["modal"])){ echo $_SESSION["modal"]; }
+            if(isset($_SESSION["table"])){ echo $_SESSION["table"]; }
         ?>
         </div>
     </section>
